@@ -11,7 +11,7 @@ Mostly similar to the original game. But with some qol/additional features.
 1. Clone the repo and cd into the directory
 
     ```bash
-    $ git clone https://github.com/thqnhz/PvZ-Clone
+    $ git clone --recursive https://github.com/thqnhz/PvZ-Clone
     $ cd PvZ-Clone
     ```
 
