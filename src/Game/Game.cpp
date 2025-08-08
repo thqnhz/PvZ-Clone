@@ -11,6 +11,7 @@ Game::Game() {
     SetTargetFPS(60);
     m_gameState = new GameState(GameState::LOADING);
     m_isRunning = true;
+    m_mainMenu = new MainMenu(*this);
 }
 
 Game::~Game() {
@@ -44,10 +45,13 @@ void Game::update() {
             setGameState(GameState::MAIN_MENU);
             break;
         case GameState::MAIN_MENU:
-            MainMenu mainMenu(*this);
-            mainMenu.update();
+            m_mainMenu->update();
             break;
     }
+}
+
+void Game::render() {
+    
 }
 
 Font Game::getFont() {

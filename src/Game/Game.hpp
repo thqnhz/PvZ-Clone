@@ -3,11 +3,13 @@
 #include <unistd.h>
 #include "raylib.h"
 
+class MainMenu;
+
 enum class GameState {
-    EXITING = 0,
-    LOADING = 1,
-    MAIN_MENU = 2,
-    GAMEPLAY = 3
+    EXITING,
+    LOADING,
+    MAIN_MENU,
+    GAMEPLAY
 };
 
 class Game {
@@ -25,11 +27,14 @@ class Game {
     GameState* m_gameState;
     Texture2D m_mainMenuBackgroundTexture;
     bool m_isRunning;
+
+    MainMenu* m_mainMenu;
 public:
     Game();
     ~Game();
     void run();
     void update();
+    void render();
     Font getFont();
     int getFontSpacing();
     Image getMainMenuImage();
