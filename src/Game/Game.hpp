@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include <unistd.h>
 #include "raylib.h"
 
@@ -23,10 +24,11 @@ class Game {
     const Image c_iconImage = LoadImage(TextFormat("%s/assets/icon.png", c_appDir));
     const Image c_mainMenuImage = LoadImage(TextFormat("%s/assets/main_menu.png", c_appDir));
     
+    std::unique_ptr<GameState> m_gameState = std::make_unique<GameState>(GameState::LOADING);
+    bool m_isRunning = true;
+    
     Font m_font;
-    GameState* m_gameState;
     Texture2D m_mainMenuBackgroundTexture;
-    bool m_isRunning;
 
     MainMenu* m_mainMenu;
 public:

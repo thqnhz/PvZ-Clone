@@ -9,8 +9,7 @@ Game::Game() {
     m_mainMenuBackgroundTexture = LoadTextureFromImage(c_mainMenuImage);
     m_font = LoadFontEx(TextFormat("%s/assets/creepster.ttf", c_appDir), c_loadedFontSize, 0, 0);
     SetTargetFPS(60);
-    m_gameState = new GameState(GameState::LOADING);
-    m_isRunning = true;
+
     m_mainMenu = new MainMenu(*this);
 }
 
