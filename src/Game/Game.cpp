@@ -1,5 +1,6 @@
 #include "Game.hpp"
 #include "../Scene/MainMenu.hpp"
+#include "../Scene/Loading.hpp"
 #include "raylib.h"
 
 Game::Game() {
@@ -11,6 +12,7 @@ Game::Game() {
     SetTargetFPS(60);
 
     m_mainMenu = new MainMenu(*this);
+    m_loadingScreen = new LoadingScreen(*this);
 }
 
 Game::~Game() {
@@ -33,8 +35,7 @@ void Game::run() {
 void Game::update() {
     switch (*m_gameState) {
         case GameState::LOADING:
-            sleep(3);
-            setGameState(GameState::MAIN_MENU);
+            m_loadingScreen->update();
             break;
         case GameState::EXITING:
             m_isRunning = false;

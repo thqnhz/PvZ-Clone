@@ -5,6 +5,7 @@
 #include "raylib.h"
 
 class MainMenu;
+class LoadingScreen;
 
 enum class GameState {
     EXITING,
@@ -31,6 +32,7 @@ class Game {
     Texture2D m_mainMenuBackgroundTexture;
 
     MainMenu* m_mainMenu;
+    LoadingScreen* m_loadingScreen;
 public:
     Game();
     ~Game();
